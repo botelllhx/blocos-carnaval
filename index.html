@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>🎉 Fugytivos do Caps - Blocos de Carnaval 🎭</title>
+    <style>
+        body {
+            font-family: "Comic Neue", serif;
+            font-weight: 700;
+            font-style: italic;
+            background: linear-gradient(45deg, #ff4081, #ffcc00, #40c4ff);
+            background-size: 400% 400%;
+            animation: gradientBG 10s infinite alternate;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .bloco {
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+            transition: transform 0.3s ease-in-out;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .bloco:hover {
+            transform: scale(1.05);
+        }
+
+        iframe {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎭 Fugytivos do Caps - Blocos de Carnaval 🎉</h1>
+    <div id="blocos-container"></div>
+    <h2>☎️ Contatos de Emergência</h2>
+    <ul>
+        <li><a href="tel:+5531993884747">📞 Botelho - (31) 99388-4747</a></li>
+        <li><a href="tel:+5531971421220">📞 Leslinha - (31) 97142-1220</a></li>
+        <li><a href="tel:+5531975743131">📞 Vitorinha - (31) 97574-3131</a></li>
+    </ul>
+    <p class="footer">Criado com carinho pelo Botelho 🦊🫶🏼</p>
+
+    <script>
+        const blocos = [
+            {
+                nome: "🥁 Tchanzinho Zona Norte",
+                mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.205156066862!2d-43.911470124015146!3d-19.915757737866763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69a29ec6cc0bf%3A0x414724bd8cdf0c6e!2sAv.%20dos%20Andradas%2C%203560%20-%20Centro%2C%20Belo%20Horizonte%20-%20MG%2C%2030280-020!5e0!3m2!1spt-BR!2sbr!4v1740509109856!5m2!1spt-BR!2sbr",
+                horario: "🕛📅 Sábado - 08:30h - Av. dos Andradas, 3560, Pompéia"
+            },
+            {
+                nome: "🎶 Seu Vizinho",
+                mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.9880039910818!2d-43.91074182401464!3d-19.924910338151555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69983d44d6107%3A0xd908c46b5a6c7291!2sAv.%20Mem%20de%20S%C3%A1%2C%201080%20-%20Santa%20Efig%C3%AAnia%2C%20Belo%20Horizonte%20-%20MG%2C%2030260-270!5e0!3m2!1spt-BR!2sbr!4v1740509546975!5m2!1spt-BR!2sbr",
+                horario: "🕛📅 Sábado - 12h - Av. Mem de Sá, 1080, Santa Efigênia"
+            },
+            {
+                nome: "🍍 Abalocaxi",
+                mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.1105852281594!2d-43.94192552401486!3d-19.919744237990834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699e34d121aeb%3A0x49957bb44dd42d71!2sAv.%20Amazonas%2C%20507%20-%20Centro%2C%20Belo%20Horizonte%20-%20MG%2C%2030180-001!5e0!3m2!1spt-BR!2sbr!4v1740509601606!5m2!1spt-BR!2sbr",
+                horario: "🕛📅 Domingo - 09h - Av Amazonas, 507, Centro"
+            },
+            {
+                nome: "💋 Beiço do Wando",
+                mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.8761757955863!2d-43.933477324014554!3d-19.929622138298367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6990fe1017ba5%3A0xe9831dafd4b810b0!2sFraternidade%20Espa%C3%A7oTenda%20Do%20Amor!5e0!3m2!1spt-BR!2sbr!4v1740509641199!5m2!1spt-BR!2sbr",
+                horario: "🕛📅 Domingo - 09h - Av Brasil, 1285, Santa Efigênia"
+            },
+            {
+                nome: "🚂 Trembase",
+                mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.189296287564!2d-43.93093322401492!3d-19.916426337887458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699f436f61c81%3A0xce2abb3356eb0074!2sAv.%20Assis%20Chateaubriand%2C%20100%20-%20Floresta%2C%20Belo%20Horizonte%20-%20MG%2C%2030150-100!5e0!3m2!1spt-BR!2sbr!4v1740509692014!5m2!1spt-BR!2sbr",
+                horario: "🕛📅 Domingo - 15h - Av Assis Chateubriand, 100, Floresta"
+            },
+            {
+                nome: "🎤 Ainda Estamos Aqui",
+                mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.999909667213!2d-43.92427442401462!3d-19.92440863813599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6998d9b0059cb%3A0x18c86a7e5c2db5c1!2zT3JhdMOzcmlv!5e0!3m2!1spt-BR!2sbr!4v1740509743414!5m2!1spt-BR!2sbr",
+                horario: "🕛📅 Domingo - 20h - Bar Oratório, Av Brasil 161, Santa Efigênia"
+            },
+            {
+                nome: "👞 Truck do Desejo",
+                mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.1476803922196!2d-43.92397082401585!3d-19.875985036630283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69af5b36e82db%3A0x978ef512a96e3769!2sR.%20Y%2C%2055%20-%20Dom%20Joaquim%2C%20Belo%20Horizonte%20-%20MG%2C%2031170-675!5e0!3m2!1spt-BR!2sbr!4v1740509795360!5m2!1spt-BR!2sbr",
+                horario: "🕛📅 Terça-feira - 08h - R. Y, 55, Bairro União"
+            },
+            {
+                nome: "💃 Maria Baderna",
+                mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.2044254750335!2d-43.92323992401501!3d-19.915788537867602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69a20a41f4af1%3A0xefc089782decc20c!2sR.%20M%C3%A1rmore%2C%20196%20-%20Santa%20Tereza%2C%20Belo%20Horizonte%20-%20MG%2C%2031010-220!5e0!3m2!1spt-BR!2sbr!4v1740509847990!5m2!1spt-BR!2sbr",
+                horario: "🕛📅 Terça-feira - 13h - Rua Mármore, 196, Santa Tereza"
+            }
+        ];
+
+        const colors = ["#FF5733", "#FFC300", "#36A2EB", "#8D33FF", "#33FF57", "#FF33A8", "#FF8C33"];
+        const container = document.getElementById("blocos-container");
+
+        blocos.forEach((bloco, index) => {
+            const div = document.createElement("div");
+            div.className = "bloco";
+            div.style.backgroundColor = colors[index % colors.length]; // Alterna entre as cores
+            div.innerHTML = `
+                <h2>${bloco.nome}</h2>
+                <p>${bloco.horario}</p>
+                <iframe src="${bloco.mapa}" allowfullscreen="" loading="lazy"></iframe>
+            `;
+            container.appendChild(div);
+        });
+    </script>
+</body>
+
+</html>
